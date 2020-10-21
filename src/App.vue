@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <h3>Preencha abaixo</h3>
 
-                <form>
+                <form @submit.prevent="enviar">
                     <div class="form-group">
                         <label>Nome:</label>
                         <input type="text" class="form-control" placeholder="Seu nome" v-model.lazy.trim="desenvolvedor.nome" />
@@ -91,7 +91,8 @@
                     </div>
 
                     <button class="btn btn-secondary">Resetar</button>
-                    <button class="btn btn-success">Enviar</button>
+                    <!-- <button class="btn btn-success" type="button" @click="enviar">Enviar</button> -->
+                    <button class="btn btn-success" type="submit">Enviar</button>
                 </form>
             </div>
 
@@ -172,6 +173,12 @@ export default {
             ],
         };
     },
+    methods: {
+        enviar() {
+            const formularioEnviado = Object.assign({}, this.desenvolvedor);
+            console.log('Form enviado', formularioEnviado);
+        }
+    }
 };
 </script>
 
