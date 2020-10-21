@@ -39,12 +39,12 @@
                         <p>Gênero:</p>
 
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" value="Masculino">
+                            <input type="radio" class="form-check-input" value="Masculino" v-model="desenvolvedor.genero">
                             <label class="form-check-label">Masculino</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" value="Feminino">
+                            <input type="radio" class="form-check-input" value="Feminino" v-model="desenvolvedor.genero">
                             <label class="form-check-label">Feminino</label>
                         </div>
 
@@ -118,7 +118,7 @@
                         <li class="list-group-item"><strong>Nome:</strong> {{ desenvolvedor.nome }}</li>
                         <li class="list-group-item"><strong>Email:</strong> {{ desenvolvedor.email }} </li>
                         <li class="list-group-item"><strong>Idade:</strong> {{ desenvolvedor.idade }} </li>
-                        <li class="list-group-item"><strong>Gênero:</strong> </li>
+                        <li class="list-group-item"><strong>Gênero:</strong> {{ desenvolvedor.genero }}</li>
                         <li class="list-group-item"><strong>Ocupação:</strong> </li>
                         <li class="list-group-item"><strong>Tecnologias:</strong> </li>
                         <li class="list-group-item">
@@ -154,7 +154,8 @@ export default {
                 nome: '',
                 email: '',
                 idade: 28,
-                bio: 'Sou desenvolvedor desde 2010...'
+                bio: 'Sou desenvolvedor desde 2010...',
+                genero: 'Feminino'
             }
         }
     }
