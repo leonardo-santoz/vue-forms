@@ -85,7 +85,8 @@
 
                     <div class="form-group">
                         <label>Resumo de perfil:</label>
-                        <textarea class="form-control" placeholder="Conte-nos um pouco sobre você..."></textarea>
+                        <textarea class="form-control" placeholder="Conte-nos um pouco sobre você..." v-model="desenvolvedor.bio">
+                        </textarea>
                     </div>
 
                     <div class="form-group">
@@ -120,7 +121,11 @@
                         <li class="list-group-item"><strong>Gênero:</strong> </li>
                         <li class="list-group-item"><strong>Ocupação:</strong> </li>
                         <li class="list-group-item"><strong>Tecnologias:</strong> </li>
-                        <li class="list-group-item"><strong>Biografia:</strong> </li>
+                        <li class="list-group-item">
+                            <strong>Biografia:</strong>
+                            <!-- <pre>{{ desenvolvedor.bio }} </pre> -->
+                            <div style="white-space: pre"> {{ desenvolvedor.bio }} </div>
+                        </li>
                         <li class="list-group-item"><strong>Receber notificações?</strong> </li>
                     </ul>
 
@@ -148,7 +153,8 @@ export default {
             desenvolvedor: {
                 nome: '',
                 email: '',
-                idade: 28
+                idade: 28,
+                bio: 'Sou desenvolvedor desde 2010...'
             }
         }
     }
