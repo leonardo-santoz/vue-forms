@@ -79,8 +79,11 @@
 
                     <div class="form-group">
                         <label>Resumo de perfil:</label>
-                        <textarea class="form-control" placeholder="Conte-nos um pouco sobre você..." v-model="desenvolvedor.bio">
-              </textarea>
+                        <textarea class="form-control" placeholder="Conte-nos um pouco sobre você..." v-model="desenvolvedor.bio"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <AppRange label="Salário Pretendido: " v-model.number="desenvolvedor.salario" min="1000" max="15000" step="500" inputClasses="form-control-range" />
                     </div>
 
                     <div class="form-group">
@@ -136,6 +139,10 @@
                             <strong>Receber notificações?</strong>
                             {{ desenvolvedor.notificacoes }}
                         </li>
+                        <li class="list-group-item">
+                            <strong>Salario Pretendido:</strong>
+                            {{ desenvolvedor.salario }}
+                        </li>
                     </ul>
 
                     <div class="card-header">Model</div>
@@ -151,7 +158,12 @@
 </template>
 
 <script>
+import AppRange from "./components/Range";
+
 export default {
+    components: {
+        AppRange,
+    },
     data() {
         return {
             desenvolvedor: {},
@@ -164,6 +176,7 @@ export default {
                 tecnologias: [],
                 notificacoes: "Não",
                 ocupacao: "",
+                salario: 1000,
             },
             ocupacoes: [
                 "Desenvolvedor Front End (Web)",
@@ -177,15 +190,15 @@ export default {
     methods: {
         enviar() {
             const formularioEnviado = Object.assign({}, this.desenvolvedor);
-            console.log('Form enviado', formularioEnviado);
+            console.log("Form enviado", formularioEnviado);
         },
         resetar() {
             this.desenvolvedor = Object.assign({}, this.valoresPadroes);
-        }
+        },
     },
     created() {
         this.resetar();
-    }
+    },
 };
 </script>
 
